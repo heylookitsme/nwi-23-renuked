@@ -5,9 +5,9 @@ using UnityEngine;
 public class FigureEight : MonoBehaviour
 {
 		public float speed;   
-		float m_Speed = 1;
-		float m_XScale = 1;
-		float m_YScale = 1;
+		float m_Speed = 0.2f;
+		float m_XScale = 4;
+		float m_YScale = 4;
 		 
 		private Vector3 m_Pivot;
 		private Vector3 m_PivotOffset;
@@ -37,5 +37,6 @@ public class FigureEight : MonoBehaviour
    
     transform.position = m_Pivot + (m_Invert ? m_PivotOffset : Vector3.zero);
     transform.position = new Vector3(Mathf.Sin(m_Phase) * m_XScale + transform.position.x, Mathf.Cos(m_Phase) * (m_Invert ? -1 : 1) * m_YScale + transform.position.y, transform.position.z);
+	transform.LookAt(transform.position);
     }
 }

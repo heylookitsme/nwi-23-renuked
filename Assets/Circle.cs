@@ -14,7 +14,7 @@ public float speed;
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(0, speed * Time.deltaTime, 0);
+        transform.Rotate(0, 0, speed * Time.deltaTime);
 
     }
 }

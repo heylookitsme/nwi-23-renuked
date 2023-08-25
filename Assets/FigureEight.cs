@@ -5,7 +5,7 @@ using UnityEngine;
 public class FigureEight : MonoBehaviour
 {
 		public float speed;   
-		float m_Speed = 0.2f;
+		float m_Speed = 0.9f;
 		float m_XScale = 6;
 		float m_YScale = 6;
 		 
@@ -25,6 +25,7 @@ public class FigureEight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		/* 
     m_PivotOffset = Vector3.up * 2 * m_YScale;
    
     m_Phase += m_Speed * Time.deltaTime;
@@ -36,7 +37,26 @@ public class FigureEight : MonoBehaviour
     if(m_Phase < 0) m_Phase += m_2PI;
    
     transform.position = m_Pivot + (m_Invert ? m_PivotOffset : Vector3.zero);
-    transform.position = new Vector3(Mathf.Sin(m_Phase) * m_XScale + transform.position.x, Mathf.Cos(m_Phase) * (m_Invert ? -1 : 1) * m_YScale + transform.position.y, transform.position.z);
+	
+    transform.position = new Vector3(
+	Mathf.Sin(m_Phase) * m_XScale + transform.position.x, 
+	Mathf.Cos(m_Phase) * (m_Invert ? -1 : 1) * m_YScale + transform.position.y, 
+	transform.position.z);
+	
 	transform.LookAt(transform.position);
+	*/
+	
+	m_PivotOffset = Vector3.up * 2 * m_YScale;
+	m_Phase += m_Speed * Time.deltaTime;
+	if(m_Phase > m_2PI)
+    {
+        m_Invert = !m_Invert;
+    }
+   
+	
+    transform.position = new Vector3(
+	Mathf.Sin(m_Phase) * m_XScale, 
+	transform.position.y, 
+	Mathf.Cos(m_Phase) * (m_Invert ? -1 : 1) * m_YScale);
     }
 }

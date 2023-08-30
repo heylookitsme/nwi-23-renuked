@@ -5,9 +5,9 @@ using UnityEngine;
 public class FigureEight : MonoBehaviour
 {
 		public float speed;   
-		float m_Speed = 0.2f;
-		float m_XScale = 6;
-		float m_YScale = 6;
+		float m_Speed = 0.15f;
+		float m_XScale = 16;
+		float m_YScale = 16;
 		 
 		private Vector3 m_Pivot;
 		private Vector3 m_PivotOffset;

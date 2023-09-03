@@ -83,6 +83,7 @@ GameObject:
   - component: {fileID: 641623400290965029}
   - component: {fileID: 5036066516753649384}
   - component: {fileID: 8443778005742144217}
+  - component: {fileID: 7796213492161628297}
   m_Layer: 0
   m_Name: cerave-ad-screen
   m_TagString: Untagged
@@ -431,3 +432,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7796213492161628297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8335679285842452056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd201334d8a98ba47868b0dd5c2dd838, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normal: {fileID: 0}
+  shiny: {fileID: 0}

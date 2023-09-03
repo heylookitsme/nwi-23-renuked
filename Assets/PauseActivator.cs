@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class ChangeVideo : MonoBehaviour
+public class PauseActivator : MonoBehaviour
 {
 	bool activeColor = false;
 	Material m_Material;
@@ -11,15 +11,10 @@ public class ChangeVideo : MonoBehaviour
 	[SerializeField] private Material normal;
 	[SerializeField] private Material shiny;
 
-	public UnityEvent pauseMotion;
-	public UnityEvent resumeMotion;
-
-
+	
 	Renderer ren; 
 	void Start () {
 		m_Material = GetComponent<Renderer>().material;
-		pauseMotion.AddListener(GameObject.FindGameObjectWithTag("XROrigin").GetComponent<FigureEight>().PauseMotion);
-		resumeMotion.AddListener(GameObject.FindGameObjectWithTag("XROrigin").GetComponent<FigureEight>().ResumeMotion);
 	}
 
     // Update is called once per frame
@@ -36,11 +31,13 @@ public class ChangeVideo : MonoBehaviour
 	
 	public void ChangeColorOn() {
 		activeColor = true;
-		pauseMotion.Invoke();
+		//FigureEight.instance.isPaused = true; 
+		// send out an event saying that you should slow down 
 	}
 	
 	public void ChangeColorOff() {
 		activeColor = false;
-		resumeMotion.Invoke();
+		//FigureEight.instance.isPaused = false;
+		// send out event saying that you should quit 
 	}
 }

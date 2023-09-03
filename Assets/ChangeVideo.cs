@@ -7,13 +7,15 @@ using UnityEngine.Events;
 public class ChangeVideo : MonoBehaviour
 {
 	bool activeColor = false;
+	Material m_Material;
+
 	[SerializeField] private Material normal;
 	[SerializeField] private Material shiny;
 
 	
 	Renderer ren; 
 	void Start () {
-
+		m_Material = GetComponent<Renderer>().material;
 	}
 
     // Update is called once per frame
@@ -24,7 +26,7 @@ public class ChangeVideo : MonoBehaviour
 			ren.material = shiny;
 		} else {
 			ren = GetComponent<Renderer>();
-			ren.material = normal;
+			ren.material = m_Material;
 		}
     }
 	

@@ -5,8 +5,8 @@ using UnityEngine;
 public class FigureEight : MonoBehaviour
 {
 	public float speed;   
-	float m_Speed = 0.15f;
-	//float m_Speed = 0.000015f;
+	//float m_Speed = 0.12f;
+	float m_Speed = 0.000015f;
 	float m_XScale = 16;
 	float m_YScale = 16;
 		 

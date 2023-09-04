@@ -83,6 +83,7 @@ GameObject:
   - component: {fileID: 5551174830961650413}
   - component: {fileID: 85271133604588491}
   - component: {fileID: 176696368051846207}
+  - component: {fileID: -4847968426143790437}
   m_Layer: 0
   m_Name: ice-cold-drink-screen
   m_TagString: Untagged
@@ -191,6 +192,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   normal: {fileID: 2100000, guid: c57d239513d35404882fbc21600f95ca, type: 2}
   shiny: {fileID: 2100000, guid: 9a32b38e4099b7a42adb14c3c7cea72b, type: 2}
+  pauseMotion:
+    m_PersistentCalls:
+      m_Calls: []
+  resumeMotion:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &85271133604588491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,9 +237,9 @@ MonoBehaviour:
   m_HoverEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5551174830961650413}
-        m_TargetAssemblyTypeName: ChangeVideo, Assembly-CSharp
-        m_MethodName: ChangeColorOn
+      - m_Target: {fileID: -4847968426143790437}
+        m_TargetAssemblyTypeName: onContentHover, Assembly-CSharp
+        m_MethodName: onHoverEnter
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -245,9 +252,9 @@ MonoBehaviour:
   m_HoverExited:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5551174830961650413}
-        m_TargetAssemblyTypeName: ChangeVideo, Assembly-CSharp
-        m_MethodName: ChangeColorOff
+      - m_Target: {fileID: -4847968426143790437}
+        m_TargetAssemblyTypeName: onContentHover, Assembly-CSharp
+        m_MethodName: onHoverExit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -265,10 +272,34 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5551174830961650413}
+        m_TargetAssemblyTypeName: ChangeVideo, Assembly-CSharp
+        m_MethodName: ChangeColorOn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5551174830961650413}
+        m_TargetAssemblyTypeName: ChangeVideo, Assembly-CSharp
+        m_MethodName: ChangeColorOff
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_FirstFocusEntered:
     m_PersistentCalls:
       m_Calls: []
@@ -431,3 +462,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-4847968426143790437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7019906637120980313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc20cf950af4894db7877519df42e48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

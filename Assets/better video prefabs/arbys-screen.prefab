@@ -33,7 +33,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.70710576, y: -0, z: -0, w: 0.70710784}
   m_LocalPosition: {x: -7.3, y: 2.1442223, z: -0.72577214}
-  m_LocalScale: {x: 0.15768, y: 2.0479999, z: 1.1520001}
+  m_LocalScale: {x: 0.15768, y: 0.9960857, z: 1.2811393}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4593746592870517447}
@@ -433,7 +433,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 6.341958, y: 0.48828125, z: 0.86805546}
+  m_LocalScale: {x: 6.341958, y: 0.48828125, z: 1.453472}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5929431339330458448}
@@ -455,7 +455,7 @@ VideoPlayer:
   m_TargetMaterialRenderer: {fileID: 5489383823608369790}
   m_TargetMaterialProperty: 
   m_RenderMode: 2
-  m_AspectRatio: 2
+  m_AspectRatio: 5
   m_DataSource: 0
   m_TimeUpdateMode: 2
   m_PlaybackSpeed: 1

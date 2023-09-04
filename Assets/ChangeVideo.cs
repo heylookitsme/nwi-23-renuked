@@ -20,6 +20,8 @@ public class ChangeVideo : MonoBehaviour
 		og_Material = new Material(GetComponent<Renderer>().material);
 		pauseMotion.AddListener(GameObject.FindGameObjectWithTag("XROrigin").GetComponent<FigureEight>().PauseMotion);
 		resumeMotion.AddListener(GameObject.FindGameObjectWithTag("XROrigin").GetComponent<FigureEight>().ResumeMotion);
+		pauseMotion.AddListener(GameObject.FindGameObjectWithTag("XROrigin").GetComponent<Circle>().PauseMotion);
+		resumeMotion.AddListener(GameObject.FindGameObjectWithTag("XROrigin").GetComponent<Circle>().ResumeMotion);
 	}
 
     // Update is called once per frame

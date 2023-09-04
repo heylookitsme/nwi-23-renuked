@@ -5,39 +5,32 @@ using UnityEngine.Events;
 
 public class PauseActivator : MonoBehaviour
 {
-	bool activeColor = false;
-	Material m_Material;
+	public UnityEvent pauseMotion;
+	public UnityEvent resumeMotion;
 
-	[SerializeField] private Material normal;
-	[SerializeField] private Material shiny;
 
-	
-	Renderer ren; 
-	void Start () {
-		m_Material = GetComponent<Renderer>().material;
+	Renderer ren;
+	void Start()
+	{
+		pauseMotion.AddListener(GameObject.FindGameObjectWithTag("XROrigin").GetComponent<FigureEight>().PauseMotion);
+		resumeMotion.AddListener(GameObject.FindGameObjectWithTag("XROrigin").GetComponent<FigureEight>().ResumeMotion);
+		pauseMotion.AddListener(GameObject.FindGameObjectWithTag("XROrigin").GetComponent<Circle>().PauseMotion);
+		resumeMotion.AddListener(GameObject.FindGameObjectWithTag("XROrigin").GetComponent<Circle>().ResumeMotion);
 	}
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (activeColor) {
-			ren = GetComponent<Renderer>();
-			ren.material = shiny;
-		} else {
-			ren = GetComponent<Renderer>();
-			ren.material = m_Material;
-		}
-    }
-	
-	public void ChangeColorOn() {
-		activeColor = true;
-		//FigureEight.instance.isPaused = true; 
-		// send out an event saying that you should slow down 
+	// Update is called once per frame
+	void Update()
+	{
+
 	}
-	
-	public void ChangeColorOff() {
-		activeColor = false;
-		//FigureEight.instance.isPaused = false;
-		// send out event saying that you should quit 
+
+	public void ChangeColorOn()
+	{
+		pauseMotion.Invoke();
+	}
+
+	public void ChangeColorOff()
+	{
+		resumeMotion.Invoke();
 	}
 }

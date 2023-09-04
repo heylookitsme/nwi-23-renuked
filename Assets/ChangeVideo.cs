@@ -17,7 +17,7 @@ public class ChangeVideo : MonoBehaviour
 
 	Renderer ren; 
 	void Start() {
-		og_Material = GetComponent<Renderer>().material;
+		og_Material = new Material(GetComponent<Renderer>().material);
 		pauseMotion.AddListener(GameObject.FindGameObjectWithTag("XROrigin").GetComponent<FigureEight>().PauseMotion);
 		resumeMotion.AddListener(GameObject.FindGameObjectWithTag("XROrigin").GetComponent<FigureEight>().ResumeMotion);
 	}
@@ -26,10 +26,7 @@ public class ChangeVideo : MonoBehaviour
     void Update()
     {
         if (activeColor) {
-			//ren = GetComponent<Renderer>();
-			//ren.material = shiny;
-
-			GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.green * 10);
+			GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.white * 1.2f);
 		} else {
 			ren = GetComponent<Renderer>();
 			ren.material = og_Material;

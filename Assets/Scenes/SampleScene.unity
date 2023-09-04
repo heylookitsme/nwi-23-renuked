@@ -4580,11 +4580,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1197907791}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &779989185 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8335679285842452056, guid: 5ab5c4bcd13b84444a2ddb562ad96e9a, type: 3}
-  m_PrefabInstance: {fileID: 878293347}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &826467375
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5417,7 +5412,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5036066516753649384, guid: 5ab5c4bcd13b84444a2ddb562ad96e9a, type: 3}
       propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5036066516753649384, guid: 5ab5c4bcd13b84444a2ddb562ad96e9a, type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.size
@@ -5449,7 +5444,7 @@ PrefabInstance:
       objectReference: {fileID: 878293355}
     - target: {fileID: 5036066516753649384, guid: 5ab5c4bcd13b84444a2ddb562ad96e9a, type: 3}
       propertyPath: m_HoverExited.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ChangeColorOff
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5036066516753649384, guid: 5ab5c4bcd13b84444a2ddb562ad96e9a, type: 3}
       propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -5457,7 +5452,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5036066516753649384, guid: 5ab5c4bcd13b84444a2ddb562ad96e9a, type: 3}
       propertyPath: m_HoverEntered.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ChangeColorOn
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5036066516753649384, guid: 5ab5c4bcd13b84444a2ddb562ad96e9a, type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -5555,6 +5550,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7796213492161628297, guid: 5ab5c4bcd13b84444a2ddb562ad96e9a, type: 3}
+      propertyPath: shiny
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7796213492161628297, guid: 5ab5c4bcd13b84444a2ddb562ad96e9a, type: 3}
+      propertyPath: normal
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8335679285842452056, guid: 5ab5c4bcd13b84444a2ddb562ad96e9a, type: 3}
       propertyPath: m_Name
       value: cerave-ad-screen
@@ -5562,10 +5565,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8335679285842452056, guid: 5ab5c4bcd13b84444a2ddb562ad96e9a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 878293355}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ab5c4bcd13b84444a2ddb562ad96e9a, type: 3}
 --- !u!4 &878293348 stripped
 Transform:
@@ -5577,26 +5577,23 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 641623400290965029, guid: 5ab5c4bcd13b84444a2ddb562ad96e9a, type: 3}
   m_PrefabInstance: {fileID: 878293347}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 779989185}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d5bcdace17ad3344a86b56a8ec891451, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &878293355
+--- !u!114 &878293355 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 7796213492161628297, guid: 5ab5c4bcd13b84444a2ddb562ad96e9a, type: 3}
+  m_PrefabInstance: {fileID: 878293347}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 779989185}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dd201334d8a98ba47868b0dd5c2dd838, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normal: {fileID: 0}
-  shiny: {fileID: 2100000, guid: 9af753eb9ba2c1c49952faf25060074d, type: 2}
 --- !u!1 &909079616
 GameObject:
   m_ObjectHideFlags: 0
@@ -5932,7 +5929,7 @@ GameObject:
   - component: {fileID: 932842490}
   m_Layer: 0
   m_Name: XR Origin (XR Rig)
-  m_TagString: Untagged
+  m_TagString: XROrigin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6010,6 +6007,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
+  isPaused: 0
 --- !u!4 &938485735 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6216828256278803383, guid: fe716c1b4c05b30428966c7833ddd2d3, type: 3}

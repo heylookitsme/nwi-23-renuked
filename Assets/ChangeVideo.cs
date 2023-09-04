@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class ChangeVideo : MonoBehaviour
 {
 	bool activeColor = false;
-	Material m_Material;
+	Material og_Material;
 
 	[SerializeField] private Material normal;
 	[SerializeField] private Material shiny;
@@ -16,8 +16,8 @@ public class ChangeVideo : MonoBehaviour
 
 
 	Renderer ren; 
-	void Start () {
-		m_Material = GetComponent<Renderer>().material;
+	void Start() {
+		og_Material = GetComponent<Renderer>().material;
 		pauseMotion.AddListener(GameObject.FindGameObjectWithTag("XROrigin").GetComponent<FigureEight>().PauseMotion);
 		resumeMotion.AddListener(GameObject.FindGameObjectWithTag("XROrigin").GetComponent<FigureEight>().ResumeMotion);
 	}
@@ -26,11 +26,13 @@ public class ChangeVideo : MonoBehaviour
     void Update()
     {
         if (activeColor) {
-			ren = GetComponent<Renderer>();
-			ren.material = shiny;
+			//ren = GetComponent<Renderer>();
+			//ren.material = shiny;
+
+			GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.green * 10);
 		} else {
 			ren = GetComponent<Renderer>();
-			ren.material = m_Material;
+			ren.material = og_Material;
 		}
     }
 	

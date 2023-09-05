@@ -14,10 +14,15 @@ public class ChangeVideo : MonoBehaviour
 	public UnityEvent pauseMotion;
 	public UnityEvent resumeMotion;
 
+	public delegate void Freeze(Vector3 freezeLocation, Quaternion freezeRotation);
+	public static event Freeze moveMotion;
 
 	Renderer ren; 
 	void Start() {
 		og_Material = new Material(GetComponent<Renderer>().material);
+		moveMotion += GameObject.FindGameObjectWithTag("XROrigin").GetComponent<FigureEight>().PauseAndGoto;
+		moveMotion += GameObject.FindGameObjectWithTag("XROrigin").GetComponent<Circle>().PauseMotion;
+
 		pauseMotion.AddListener(GameObject.FindGameObjectWithTag("XROrigin").GetComponent<FigureEight>().PauseMotion);
 		resumeMotion.AddListener(GameObject.FindGameObjectWithTag("XROrigin").GetComponent<FigureEight>().ResumeMotion);
 		pauseMotion.AddListener(GameObject.FindGameObjectWithTag("XROrigin").GetComponent<Circle>().PauseMotion);
@@ -37,11 +42,14 @@ public class ChangeVideo : MonoBehaviour
 	
 	public void ChangeColorOn() {
 		activeColor = true;
-		pauseMotion.Invoke();
+		//pauseMotion.Invoke();
+		moveMotion(transform.position, transform.rotation);
 	}
 	
 	public void ChangeColorOff() {
 		activeColor = false;
 		resumeMotion.Invoke();
 	}
+
+
 }

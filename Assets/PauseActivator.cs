@@ -13,9 +13,9 @@ public class PauseActivator : MonoBehaviour
 	void Start()
 	{
 		pauseMotion.AddListener(GameObject.FindGameObjectWithTag("XROrigin").GetComponent<FigureEight>().PauseMotion);
-		resumeMotion.AddListener(GameObject.FindGameObjectWithTag("XROrigin").GetComponent<FigureEight>().ResumeMotion);
+		resumeMotion.AddListener(GameObject.FindGameObjectWithTag("XROrigin").GetComponent<FigureEight>().AutomaticallyResumeMotion);
 		pauseMotion.AddListener(GameObject.FindGameObjectWithTag("XROrigin").GetComponent<Circle>().PauseMotion);
-		resumeMotion.AddListener(GameObject.FindGameObjectWithTag("XROrigin").GetComponent<Circle>().ResumeMotion);
+		resumeMotion.AddListener(GameObject.FindGameObjectWithTag("XROrigin").GetComponent<Circle>().ResumeMotionOG);
 	}
 
 	// Update is called once per frame

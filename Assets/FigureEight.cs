@@ -13,14 +13,26 @@ public class FigureEight : MonoBehaviour
 	private Vector3 m_Pivot;
 	private Vector3 m_PivotOffset;
 	private float m_Phase;
-	private bool m_Invert = false;
-	private float m_2PI = 2 * Mathf.PI;
+	private Vector3 cachedPos;
+	private Vector3 targetPos;
+	private float timer = 0;
 
-	public bool isPaused = false; 
+
+	Quaternion targetRotation;
+	Quaternion cachedRotation;
+
+	enum motionState {
+		Focusing, 
+		Unfocusing, 
+		Cruising, 
+		Lol,
+	}
+
+	private motionState currMotion = motionState.Cruising;
 
 	// Start is called before the first frame update
 
-    void Start()
+	void Start()
     {
 		m_Pivot = transform.position;
 	
@@ -29,19 +41,45 @@ public class FigureEight : MonoBehaviour
 	// event reciever: if "name" was recieved -> find object with "name" and then pause in front of it. lerp to and from. if "empty" recieved" leave 
 	public void PauseMotion()
     {
-		isPaused = true;
+		currMotion = motionState.Lol;
 	}
 
 	public void ResumeMotion()
 	{
-		isPaused = false;
+		currMotion = motionState.Unfocusing;
+		targetPos = transform.position;
+		transform.rotation = cachedRotation;
+		timer = 0;
+	}
+
+	public void AutomaticallyResumeMotion()
+	{
+		currMotion = motionState.Cruising;
+	}
+
+	public void PauseAndGoto(Vector3 elementPos, Quaternion freezeRotation)
+	{
+		currMotion = motionState.Focusing;
+		// TODO: REALIZED THE PROBLEM WITH THIS. BECAUSE POSITION + ROTATION SHOULD BE CALCULATED IN TANDEM. I.E DEPENDING ON WHERE + WHERE THE VIDEO IS "FACING" WE WANT TO DO SOME MATH AND SHIT. BECUASE ITS NOT ALWAYS GOING TO BE Z 
+		/* 
+		 * renderer = GetComponent<MeshRenderer>();
+		 * size = renderer.bounds.size;
+		 * then presumably do - size.y//2
+		 */
+		// transform.position = new Vector3(elementPos.x, elementPos.y, elementPos.z + 1);
+		targetPos = new Vector3(elementPos.x, elementPos.y, elementPos.z + 3);
+		cachedPos = transform.position;
+
+		targetRotation = freezeRotation;
+		cachedRotation = transform.rotation;
+		transform.rotation = targetRotation;
 	}
 
 	// Update is called once per frame
 	void Update()
     {
 
-		if (!isPaused)
+		if (currMotion == motionState.Cruising)
 		{
 			m_PivotOffset = Vector3.up * 2 * m_YScale;
 			m_Phase += m_Speed * Time.deltaTime;
@@ -50,10 +88,29 @@ public class FigureEight : MonoBehaviour
 			Mathf.Sin(m_Phase) * m_XScale,
 			transform.position.y,
 			Mathf.Cos(m_Phase) * m_YScale);
+
+			cachedPos = transform.position;
 		}
-		else { 
-		
+		else if (currMotion == motionState.Focusing)
+		{
+			// add to timer while we are still paused, unless we already are at max seconds 
+			timer += Time.deltaTime;
+			// updated the position by timer/total time 
+			transform.position = Vector3.Lerp(cachedPos, targetPos, timer / 2);
+
+		}
+		 else if (currMotion == motionState.Unfocusing) {
+			// add to timer while we are still paused, unless we already are at max seconds 
+			timer += Time.deltaTime;
+			// updated the position by timer/total time 
+			transform.position = Vector3.Lerp(targetPos, cachedPos, timer / 2);
+
+			if (timer > 2)
+			{
+				currMotion = motionState.Cruising;
+				timer = 0;
+			}
 		}
 
-    }
+	}
 }
